@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital CV - Autumn Edition</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --dark-brown: #4E342E;
+            --burnt-orange: #C97C5D;
+            --cream: #FAF7F2;
+            --warm-beige: #E8DED4;
+            --olive-green: #6D7B4E;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--dark-brown);
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .nav-brand {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- Global Button --- */
+        .btn-autumn {
+            background-color: var(--burnt-orange);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-autumn:hover {
+            background-color: var(--dark-brown);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* --- Page 1: Landing --- */
+        #page-landing {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--cream);
+            text-align: center;
+        }
+
+        #page-landing h1 {
+            font-size: 5rem;
+            letter-spacing: 5px;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        /* --- Navigation --- */
+        #main-nav {
+            display: none;
+            background-color: white;
+            border-bottom: 1px solid var(--warm-beige);
+        }
+
+        /* --- Page 2: Profile --- */
+        #page-profile {
+            display: none;
+            padding: 100px 0;
+        }
+
+        .profile-card {
+            background-color: var(--warm-beige);
+            border: none;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(78, 52, 46, 0.05);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-bottom: 20px;
+            background-color: var(--cream);
+        }
+
+        /* --- Page 3: Background --- */
+        #page-background {
+            display: none;
+            padding: 100px 0;
+        }
+
+        .autumn-table {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .autumn-table thead {
+            background-color: var(--dark-brown);
+            color: white;
+        }
+
+        /* --- Page 4: Picks --- */
+        #page-picks {
+            display: none;
+            padding: 100px 0;
+        }
+
+        .comp-box {
+            background: white;
+            border: 1px solid var(--warm-beige);
+            padding: 20px;
+            border-radius: 8px;
+            height: 100%;
+        }
+
+        /* --- Animations --- */
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HALAMAN 1: LANDING PAGE -->
+    <section id="page-landing" class="fade-in">
+        <h1>WELCOME</h1>
+        <button class="btn-autumn" onclick="showPage('profile')">View CV</button>
+    </section>
+
+    <!-- NAVBAR (Hidden on Landing) -->
+    <nav id="main-nav" class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <span class="navbar-brand fw-bold" style="color: var(--dark-brown)">AUTUMN CV</span>
+            <div class="ms-auto d-flex">
+                <button class="btn btn-sm btn-outline-secondary me-2" onclick="showPage('landing')">Home</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HALAMAN 2: PROFILE -->
+    <section id="page-profile" class="container fade-in">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <div class="profile-card">
+                    <!-- FOTO PROFIL -->
+                    <img src= alt="Foto Profil" class="profile-img shadow-sm">
+                    
+                    <h1 class="display-4 mb-4">Aisyah Luthfi</h1>
+                    <div class="mb-4">
+                        <h5 class="fw-bold text-uppercase" style="color: var(--olive-green)">Biodata Mahasiswa</h5>
+                        <p class="mb-1">Bisnis Digital</p>
+                        <p class="mb-0">Universitas Negri Jakarta</p>
+                    </div>
+                    <hr style="opacity: 0.1">
+                    <p class="lead px-lg-5">
+                        Mahasiswi Bisnis Digital yang memiliki ketertarikan pada dunia digital, analisis, dan pengembangan ide kreatif. Terbiasa mengerjakan tugas akademik, proyek kelompok, serta mampu bekerja secara mandiri maupun dalam tim. Memiliki semangat belajar tinggi, adaptif, dan teliti, serta tertarik mengembangkan kemampuan di bidang bisnis digital dan analisis data.
+                    </p>
+                    <button class="btn-autumn mt-4" onclick="showPage('background')">View Background</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HALAMAN 3: BACKGROUND -->
+    <section id="page-background" class="container fade-in">
+        <h2 class="text-center mb-5">Professional Background</h2>
+        
+        <div class="row mb-5">
+            <div class="col-12">
+                <h4 class="mb-3" style="color: var(--olive-green)">Riwayat Pendidikan</h4>
+                <div class="table-responsive autumn-table">
+                    <table class="table mb-0">
+                        <thead>
+                            <tr>
+                                <th>Jenjang</th>
+                                <th>Sekolah/Institusi</th>
+                                <th>Tahun</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sarjana (S1)</td>
+                                <td>Universitas Negri Jakarta</td>
+                                <td>2024 - Sekarang</td>
+                            </tr>
+                            <tr>
+                                <td>SMA</td>
+                                <td>SMAI Nurul Fikri Boarding School Lembang</td>
+                                <td>2019-2022</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-5">
+            <div class="col-md-6">
+                <h4 class="mb-3" style="color: var(--olive-green)">Keahlian</h4>
+                <div class="table-responsive autumn-table">
+                    <table class="table mb-0">
+                        <thead>
+                            <tr>
+                                <th>Skill</th>
+                                <th>Tingkat</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Manajemen Konten & Media Sosial</td>
+                                <td>Intermediete</td>
+                            </tr>
+                            <tr>
+                                <td>Microsoft Office, Canva, Dasar HTML & CSS</td>
+                                <td>Intermediete</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4 class="mb-3" style="color: var(--olive-green)">Hobi</h4>
+                <div class="table-responsive autumn-table">
+                    <table class="table mb-0">
+                        <thead>
+                            <tr>
+                                <th>Aktivitas</th>
+                                <th>Kategori</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Fotografi & editing</td>
+                                <td>Kreatif</td>
+                            </tr>
+                            <tr>
+                                <td>Membaca buku</td>
+                                <td>Learning</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button class="btn-autumn" onclick="showPage('picks')">View Bootstrap Picks</button>
+        </div>
+    </section>
+
+    <!-- HALAMAN 4: BOOTSTRAP PICKS -->
+    <section id="page-picks" class="container fade-in">
+        <h2 class="text-center mb-5">10 Favorite Bootstrap Picks</h2>
+        <div class="row g-4">
+            <!-- 1. Card -->
+            <div class="col-md-4">
+                <div class="comp-box">
+                    <small class="text-muted d-block mb-2">01. Card</small>
+                    <div class="card shadow-sm border-0">
+                        <div class="card-body">Simple components wrapper.</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 2. Button -->
+            <div class="col-md-4">
+                <div class="comp-box">
+                    <small class="text-muted d-block mb-2">02. Buttons</small>
+                    <button class="btn btn-primary btn-sm">Primary</button>
+                    <button class="btn btn-dark btn-sm">Dark</button>
+                </div>
+            </div>
+            <!-- 3. Alert -->
+            <div class="col-md-4">
+                <div class="comp-box">
+                    <small class="text-muted d-block mb-2">03. Alert</small>
+                    <div class="alert alert-success py-1 px-2 small mb-0">Action success!</div>
+                </div>
+            </div>
+            <!-- 4. Badge -->
+            <div class="col-md-4">
+                <div class="comp-box">
+                    <small class="text-muted d-block mb-2">04. Badge</small>
+                    <span class="badge bg-danger rounded-pill">Hot</span>
+                    <span class="badge bg-info">New</span>
+                </div>
+            </div>
+            <!-- 5. Progress -->
+            <div class="col-md-4">
+                <div class="comp-box">
+                    <small class="text-muted d-block mb-2">05. Progress Bar</small>
+                    <div class="progress" style="height: 10px;">
+                        <div class="progress-bar" style="width: 70%; background-color: var(--burnt-orange)"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 6. Form -->
+            <div class="col-md-4">
+                <div class="comp-box">
+                    <small class="text-muted d-block mb-2">06. Form Control</small>
+                    <input type="text" class="form-control form-control-sm" placeholder="Input here...">
+                </div>
+            </div>
+            <!-- 7. Spinner -->
+            <div class="col-md-4">
+                <div class="comp-box">
+                    <small class="text-muted d-block mb-2">07. Spinner</small>
+                    <div class="spinner-border spinner-border-sm text-secondary"></div>
+                </div>
+            </div>
+            <!-- 8. List Group -->
+            <div class="col-md-4">
+                <div class="comp-box">
+                    <small class="text-muted d-block mb-2">08. List Group</small>
+                    <ul class="list-group list-group-flush small">
+                        <li class="list-group-item p-1 border-0">• List Item</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 9. Accordion -->
+            <div class="col-md-4">
+                <div class="comp-box">
+                    <small class="text-muted d-block mb-2">09. Accordion</small>
+                    <div class="accordion accordion-flush" id="accId">
+                        <div class="accordion-item">
+                            <button class="accordion-button collapsed p-2 small shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#c1">Click</button>
+                            <div id="c1" class="accordion-collapse collapse">
+                                <div class="accordion-body p-2 small">Content</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 10. Placeholder -->
+            <div class="col-md-12 text-center">
+                <div class="comp-box">
+                    <small class="text-muted d-block mb-2">10. Placeholder (Loading State)</small>
+                    <p class="placeholder-glow mb-0">
+                        <span class="placeholder col-6 bg-secondary opacity-25"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-5">
+            <button class="btn btn-outline-dark btn-sm" onclick="showPage('profile')">Back to Profile</button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-5 text-center mt-5">
+        <p class="small text-muted">&copy; 2023 Digital CV - Autumn Persona.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function showPage(pageId) {
+            // Sembunyikan semua halaman
+            document.getElementById('page-landing').style.display = 'none';
+            document.getElementById('page-profile').style.display = 'none';
+            document.getElementById('page-background').style.display = 'none';
+            document.getElementById('page-picks').style.display = 'none';
+            document.getElementById('main-nav').style.display = 'none';
+
+            // Tampilkan halaman target
+            if (pageId === 'landing') {
+                document.getElementById('page-landing').style.display = 'flex';
+            } else {
+                document.getElementById('main-nav').style.display = 'block';
+                document.getElementById('page-' + pageId).style.display = 'block';
+            }
+
+            // Scroll ke atas setiap kali ganti halaman
+            window.scrollTo(0,0);
+
+            // Re-trigger fade animation
+            const targetEl = pageId === 'landing' ? document.getElementById('page-landing') : document.getElementById('page-' + pageId);
+            targetEl.classList.remove('fade-in');
+            void targetEl.offsetWidth; // Force reflow
+            targetEl.classList.add('fade-in');
+        }
+    </script>
+</body>
+</html>
